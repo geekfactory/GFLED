@@ -41,6 +41,7 @@ enum ledcolors {
 	LED_GREEN,
 	LED_RED,
 	LED_YELLOW,
+	LED_TOGGLE=0xFF,
 };
 
 /**
@@ -72,6 +73,14 @@ public:
 	 * @param pin The pin where the led is connected
 	 */
 	GFLed(uint8_t pin = 13);
+	
+	/**
+	 * Prepares a dual color led object
+	 * 
+         * @param pin The pin connected to the green led
+         * @param apin The pin connected to the red led
+         */
+	GFLed(uint8_t pin, uint8_t apin);
 
 	/**
 	 * Sets the led on and off times
@@ -81,38 +90,47 @@ public:
 	 * @param ton The number of milliseconds the led should turn on
 	 * @param toff The number of milliseconds the led should be off
 	 */
-	void SetTimings(uint16_t ton, uint16_t toff);
+	void setTimings(uint16_t ton, uint16_t toff);
 
 	/**
 	 * Sets the number of led flashes during "ton" period
 	 * 
 	 * @param flash The number of led flashes during the led active cycle
 	 */
-	void SetFlash(uint8_t flash);
+	void setFlash(uint8_t flash);
 
 	/**
 	 * Sets the speed of the led blink
 	 * 
 	 * @param speed The speed preset value according to ledspeeds enum
 	 */
-	void SetSpeed(enum ledspeeds speed);
+	void setSpeed(enum ledspeeds speed);
+	
+	/**
+	 * 
+         */
+	void setColor(enum ledcolors color);
 
 	/**
 	 * Main led processing is done here, must be called frequently on the
 	 * main program loop
 	 */
-	void Process();
+	void process();
 
 	/**
 	 * This function keeps the led flashing but never returns, effectively
 	 * blocking the program execution on a multitasking environment.
 	 */
-	void Block();
+	void block();
 private:
-	uint16_t GetTime(enum ledspeeds speed);
+	uint16_t getTime(enum ledspeeds speed);
+	void ledOutput(enum ledcolors color);
 		
 	enum ledstates _state;
+	bool _toggle;
 	uint8_t _pin;
+	uint8_t _apin;
+	enum ledcolors _color;
 	uint8_t _flashSetting;
 	uint8_t _flashCount;
 	uint16_t _ton;
