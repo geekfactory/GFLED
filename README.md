@@ -1,4 +1,4 @@
-# GFButton Library #
+# GFLed Library #
 
 Arduino library to create easily configurable blinking led without the need to put code in the main sketch. Almost every arduino project needs an indicator light, and this library takes care of this.
 
@@ -45,7 +45,7 @@ void loop() {
 
 * Simplify the programming of leds, including multi color led
 * Move status led related code outside the arduino sketch
-* Provide advanced led functionality: color control, timming configuration and pattern control
+* Provide advanced led functionality: color control, timing configuration and pattern control
 * Easy to configure and use
 * Low memory footprint
 
