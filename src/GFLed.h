@@ -1,4 +1,4 @@
-/* Blinking Led Library for Arduino
+/* GeekFactory GFLed Library for Arduino
  * 
  * Copyright (C) 2017 Jesus Ruben Santa Anna Zamudio.
  * This program is free software: you can redistribute it and/or modify
@@ -17,6 +17,7 @@
  * Author website: http://www.geekfactory.mx
  * Author e-mail: ruben at geekfactory dot mx
  */
+
 #ifndef GFLED_H
 #define GFLED_H
 
@@ -25,6 +26,9 @@
 /*-------------------------------------------------------------*/
 #include <Arduino.h>
 
+/*-------------------------------------------------------------*/
+/*		Library configuration				*/
+/*-------------------------------------------------------------*/
 #define LED_SLOW_TIME     6000
 #define LED_NORMAL_TIME   3000
 #define LED_FAST_TIME     900

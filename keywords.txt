@@ -5,7 +5,7 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-GFLed	KEYWORD1
+GFLed				KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

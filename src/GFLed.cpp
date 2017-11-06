@@ -1,4 +1,4 @@
-/* Blinking Led Library for Arduino
+/* GeekFactory GFLed Library for Arduino
  *
  * Copyright (C) 2017 Jesus Ruben Santa Anna Zamudio.
  * This program is free software: you can redistribute it and/or modify
@@ -17,6 +17,7 @@
  * Author website: http://www.geekfactory.mx
  * Author e-mail: ruben at geekfactory dot mx
  */
+
 #include "GFLed.h"
 
 GFLed::GFLed(uint8_t pin)
@@ -115,6 +116,7 @@ uint16_t GFLed::getTime(enum ledspeeds speed)
 	case LED_VFAST:
 		return LED_VFAST_TIME;
 	}
+	return LED_NORMAL_TIME;
 }
 
 void GFLed::ledOutput(enum ledcolors color)
