@@ -29,10 +29,11 @@
 /*-------------------------------------------------------------*/
 /*		Library configuration				*/
 /*-------------------------------------------------------------*/
-#define LED_SLOW_TIME     6000
-#define LED_NORMAL_TIME   3000
-#define LED_FAST_TIME     900
-#define LED_VFAST_TIME    300
+#define GFLED_VERSION_STRING	"1.0.1"
+#define LED_SLOW_TIME		6000
+#define LED_NORMAL_TIME		3000
+#define LED_FAST_TIME		900
+#define LED_VFAST_TIME		300
 
 /*-------------------------------------------------------------*/
 /*		Typedefs enums & structs			*/

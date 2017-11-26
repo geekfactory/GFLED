@@ -54,8 +54,19 @@ void GFLed::setTimings(uint16_t ton, uint16_t toff)
 
 void GFLed::setFlash(uint8_t flash)
 {
+	// Turn off the led
+	ledOutput(LED_NONE);
+	
+	// Set the new period for the led signal
 	_flashSetting = flash * 2;
 	_period = _ton / (_flashSetting - 1);
+	
+	// Reset flash logic
+	_state = E_LED_TON;
+	_toggle = true;
+	_flashCount = 0;
+	_ledTimer = millis();
+
 }
 
 void GFLed::setSpeed(enum ledspeeds speed)
