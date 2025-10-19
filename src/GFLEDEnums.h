@@ -19,15 +19,43 @@
  */
 
 #pragma once
+#include <Arduino.h>
 
-/*-------------------------------------------------------------*/
-/*	Include all the required files for the library		*/
-/*-------------------------------------------------------------*/
+/**
+ * Enumeration for the colors supported by the GFLED library.
+ * These colors can be used with RGB LEDs or dual color LEDs.
+ */
+enum class GFLEDColor : uint8_t
+{
+	OFF = 0x00,
+	RED = 0x01,
+	GREEN = 0x02,
+	BLUE = 0x04,
+	YELLOW = RED | GREEN,
+	PURPLE = RED | BLUE,
+	CYAN = GREEN | BLUE,
+	WHITE = RED | GREEN | BLUE,
+};
 
-#include "GFLEDBase.h"
-#include "GFLEDDriver.h"
-#include "GFLEDEnums.h"
-#include "GFLEDInterfaces.h"
-#include "GFLEDRGB.h"
-#include "GFLEDSimple.h"
-#include "GFLEDStatusBlink.h"
+/**
+ * Enumeration for the speed presets supported by the GFLED library.
+ * These presets can be used to quickly set the blink speed of the LED.
+ */
+enum class GFLEDSpeed : uint8_t
+{
+	VERY_SLOW = 0,
+	SLOW,
+	NORMAL,
+	FAST,
+	VERY_FAST,
+};
+
+inline GFLEDColor operator|(GFLEDColor a, GFLEDColor b)
+{
+	return static_cast<GFLEDColor>(static_cast<uint8_t>(a) | static_cast<uint8_t>(b));
+}
+
+inline bool operator&(GFLEDColor a, GFLEDColor b)
+{
+	return static_cast<uint8_t>(a) & static_cast<uint8_t>(b);
+}

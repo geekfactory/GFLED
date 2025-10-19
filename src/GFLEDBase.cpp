@@ -18,16 +18,30 @@
  * Author e-mail: ruben at geekfactory dot mx
  */
 
-#pragma once
-
-/*-------------------------------------------------------------*/
-/*	Include all the required files for the library		*/
-/*-------------------------------------------------------------*/
-
 #include "GFLEDBase.h"
-#include "GFLEDDriver.h"
-#include "GFLEDEnums.h"
-#include "GFLEDInterfaces.h"
-#include "GFLEDRGB.h"
-#include "GFLEDSimple.h"
-#include "GFLEDStatusBlink.h"
+
+GFLEDBase::GFLEDBase(IGFLEDDriver &driver) : _driver(driver) {}
+
+void GFLEDBase::begin()
+{
+	_driver.initialize();
+	_ledTimer = millis();
+}
+
+void GFLEDBase::on()
+{
+	_driver.setState(true);
+	_toggle = true;
+}
+
+void GFLEDBase::off()
+{
+	_driver.setState(false);
+	_toggle = false;
+}
+
+void GFLEDBase::toggle()
+{
+	_driver.setState(!_toggle);
+	_toggle = !_toggle;
+}

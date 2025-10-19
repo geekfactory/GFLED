@@ -8,10 +8,9 @@
 
 #include "GFLED.h"
 
-// Create a GFLED instance, defaults to pin 13
-GFLED statusled;
-// Equivalent constructor, can configure any pin and active level
-// GFLed statusled(13, HIGH);
+// Create a GFLEDRGB instance
+// for an RGB LED connected to pins 8 (Red), 9 (Green), and 10 (Blue)
+GFLEDRGB colorstatusled(8, 9, 10);
 
 /**
  * PROGRAM INITIALIZATION
@@ -19,7 +18,7 @@ GFLED statusled;
 void setup()
 {
 	// Initialize the status LED
-	statusled.begin();
+	colorstatusled.begin();
 }
 
 /**
@@ -28,5 +27,5 @@ void setup()
 void loop()
 {
 	// Call the process method inside the main loop
-	statusled.process();
+	colorstatusled.process();
 }
