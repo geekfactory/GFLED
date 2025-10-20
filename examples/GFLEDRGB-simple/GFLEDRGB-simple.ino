@@ -2,8 +2,8 @@
 	Geek Factory - "INNOVATING TOGETHER"
 	www.geekfactory.mx
 
-	Simple example of GFLED library that shows how to create a blinking LED
-	on pin 13 (LED_BUILTIN) of the arduino board.
+	Simple example of GFLED library that shows how to create a blinking RGB LED
+	using GFLEDRGB class.
 */
 
 #include "GFLED.h"
